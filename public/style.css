@@ -1,0 +1,123 @@
+:root {
+	color-scheme: light;
+	font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+	color: #19232d;
+	background: #f5f7f8;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	min-width: 320px;
+	min-height: 100vh;
+	margin: 0;
+	display: grid;
+	place-items: center;
+	padding: 32px 20px;
+	background-color: #f5f7f8;
+	background-image:
+		linear-gradient(rgba(25, 35, 45, 0.035) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(25, 35, 45, 0.035) 1px, transparent 1px);
+	background-size: 36px 36px;
+}
+
+main {
+	position: relative;
+	width: min(100%, 640px);
+	overflow: hidden;
+	padding: clamp(32px, 7vw, 64px);
+	border: 1px solid #dce2e6;
+	border-radius: 8px;
+	background: rgba(255, 255, 255, 0.96);
+	box-shadow: 0 24px 70px rgba(25, 35, 45, 0.09);
+	animation: arrive 550ms ease-out both;
+}
+
+main::before {
+	position: absolute;
+	inset: 0 0 auto;
+	height: 6px;
+	background: linear-gradient(90deg, #f38020 0 68%, #ffb35c 68% 100%);
+	content: "";
+}
+
+h1 {
+	max-width: 10ch;
+	margin: 0 0 18px;
+	color: #19232d;
+	font-size: clamp(2.5rem, 8vw, 4.5rem);
+	font-weight: 750;
+	line-height: 0.98;
+	letter-spacing: 0;
+}
+
+h1::first-line {
+	color: #f38020;
+}
+
+main > p {
+	max-width: 42ch;
+	margin: 0 0 28px;
+	color: #53616b;
+	font-size: 1.05rem;
+	line-height: 1.7;
+}
+
+button {
+	min-height: 48px;
+	padding: 0 22px;
+	border: 0;
+	border-radius: 4px;
+	background: #f38020;
+	color: #fff;
+	font: inherit;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+button:hover {
+	transform: translateY(-2px);
+	background: #d9680b;
+	box-shadow: 0 8px 18px rgba(243, 128, 32, 0.24);
+}
+
+button:focus-visible {
+	outline: 3px solid #19232d;
+	outline-offset: 4px;
+}
+
+#hasil {
+	min-height: 1.7em;
+	margin: 20px 0 0;
+	color: #19232d;
+	font-size: 0.95rem;
+}
+
+@keyframes arrive {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+}
